@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.19.2"></script>
+  <title>Challenge 2</title>
+</head>
+<body>
+  <h1>Challenge 2 - Visualisation Sleep Data</h1>
+  <div id="vis"></div>
+  <script>
+  var vlSpec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "description": "visualisation of sleep pattern",
+    "data": {
+      "url": "sleepdata/Philips_sleep_NDA.json",
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "",
+        "type": "ordinal"
+      },
+      "y": {
+        "field": "",
+        "type": "quantitative"
+      },
+      "color": {"field": "", "type": "nominal"}
+    }
+  };
+  vegaEmbed('#vis', vlSpec);
+  </script>  
+</body>
+
+</html>
