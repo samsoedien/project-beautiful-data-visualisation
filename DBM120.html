@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 
 <head>
-  <meta charset="utf-8">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <script>
-    $.ajax({url: 'test.json'}).done(function(result) {  //test.json is het bestand dat hij uitleest.
-      var raw_data = result;
+	<script>
+		$.ajax({ url: 'data/test.json' }).done(function (result) {  //test.json is het bestand dat hij uitleest.
+			var raw_data = result;
 
-      var json = [];
+			var json = [];
 
-      for (var i = 0; i < raw_data.length; i++) {
-      	for (var j = 0; j < raw_data[i].data.sleepStages.length; j++) {
-      		var item = {};
-      		item.userId = raw_data[i].userId;
-      		var wakeValue = -1;
-      		switch(raw_data[i].data.sleepStages[j].value) {
-      			case "WAKE":
-      				wakeValue = 0;
-      				break;
+			for (var i = 0; i < raw_data.length; i++) {
+				for (var j = 0; j < raw_data[i].data.sleepStages.length; j++) {
+					var item = {};
+					item.userId = raw_data[i].userId;
+					var wakeValue = -1;
+					switch (raw_data[i].data.sleepStages[j].value) {
+						case "WAKE":
+							wakeValue = 0;
+							break;
 
-      			case "LIGHT_SLEEP":
-      			    wakeValue = 1;
-      			    break;
+						case "LIGHT_SLEEP":
+							wakeValue = 1;
+							break;
 
-      			case "DEEP_SLEEP":
-      				wakeValue = 2;
-      				break;
+						case "DEEP_SLEEP":
+							wakeValue = 2;
+							break;
 
-      			case "UNSPECIFIED":
-      				wakeValue = 4;
-      				break;
+						case "UNSPECIFIED":
+							wakeValue = 4;
+							break;
 
-      			case "REM_SLEEP":
-      			   	wakeValue = 3;
-      			   	break;
-      		}
-					item.sleepStages = raw_data[i].data.sleepStages[j].wakeValue;
+						case "REM_SLEEP":
+							wakeValue = 3;
+							break;
+					}
+					item.wakeValue = raw_data[i].data.sleepStages[j].value
+					json.push(item); //stuurt items in de array
+				}
+			}
+			console.log(json);
 
-          json.push(item); //stuurt items in de array
-      	}
-      }
-      console.log(json);
+			function download(content, fileName, contentType) { //zorgt ervoor dat het bestand wordt gedownload
+				var a = document.createElement("a");
+				var file = new Blob([content], { type: contentType });
+				a.href = URL.createObjectURL(file);
+				a.download = fileName;
+				a.click();
+			}
 
-      function download(content, fileName, contentType) { //zorgt ervoor dat het bestand wordt gedownload
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
- }
+			download(JSON.stringify(json), 'output.json', 'text/plain');
 
- download(JSON.stringify(json), 'output.json', 'text/plain');
-
-    });
-  </script>
+		});
+	</script>
 </body>

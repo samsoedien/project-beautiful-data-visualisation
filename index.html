@@ -19,16 +19,16 @@
       "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
       "description": "visualisation of sleep pattern",
       "data": {
-        "url": "sleepdata/Philips_sleep_NDA.json",
+        "url": "https://beautiful-data.herokuapp.com/api/users/5bc70eda523378056f78d6bb/",
       },
       "mark": "line",
       "encoding": {
         "x": {
-          "field": "",
+          "field": "heartdata.timestamp",
           "type": "ordinal"
         },
         "y": {
-          "field": "",
+          "field": "heartdata.bpm",
           "type": "quantitative"
         },
         "color": { "field": "", "type": "nominal" }
