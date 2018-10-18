@@ -1,5 +1,3 @@
-// console.log('hello');
-
 const fs = require("fs");
 
 const file = "data/test.json"; // choose input file
@@ -25,11 +23,13 @@ for (const inItem of input) {
   }
   outItem.userId = outId;
 
-  // date
-  outItem.date = inItemnode.createdAt;
+  // date of the night
+  outItem.date = inItem.data.sessionStartTime;
+  outItem.date = inItem.data.sessionEndTime;
 
   // copy heart rate
   outItem.sleepingHeartRate = inItem.data.sleepingHeartRate;
+  // convert -7
 
   // count SleepStages
   outItem.count_SLEEP_STAGES = 0;
@@ -46,7 +46,7 @@ for (const inItem of input) {
   outItem.timeSleep = outItem.timeSession - outItem.count_WAKE * 30;
 
   // Add random data; Random heartbeat data and amount of steps in a array
-  outItem.averigHeartbeatDuringDay = Math.floor(Math.random() * 60) + 60;
+  outItem.averageHeartbeatDuringDay = Math.floor(Math.random() * 60) + 60;
   outItem.AmountofSteps = Math.floor(Math.random() * 5000) + 7000;
 
   // put into file
