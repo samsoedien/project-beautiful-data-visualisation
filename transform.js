@@ -23,12 +23,30 @@ for (const inItem of input) {
   }
   outItem.userId = outId;
 
-  // date
-  outItem.date = inItemnode.createdAt;
+   // date of the night
+   outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
+   outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
+ 
+   var startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
+   var endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
+
+   //time -7 hour 
+   var startTime = new Date(startTimeISOString);
+   startTime = new Date(
+     startTime.getTime() + startTime.getTimezoneOffset() * (7 * 30000)
+   );
+ 
+   var endTime = new Date(endTimeISOString);
+   endTime = new Date(
+     endTime.getTime() + endTime.getTimezoneOffset() * (7 * 30000)
+   );
+ 
+   outItem.sessionStartTime = startTime;
+   outItem.sessionEndTime = endTime;
 
   // copy heart rate
   outItem.sleepingHeartRate = inItem.data.sleepingHeartRate;
-  // convert -7
+ 
 
   // count SleepStages
   outItem.count_SLEEP_STAGES = 0;
