@@ -55,5 +55,5 @@ for (const inItem of input) {
 
 //write to new .json file
 const outTxt = JSON.stringify(output, null, 2);
-fs.writeFileSync("output.json", outTxt + "\n", "utf8");
+fs.writeFileSync("data/output.json", outTxt + "\n", "utf8");
 // console.log(output);
