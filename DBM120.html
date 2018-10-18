@@ -8,7 +8,7 @@
 
 <body>
 	<script>
-		$.ajax({ url: 'data/test.json' }).done(function (result) {  //test.json is het bestand dat hij uitleest.
+		$.ajax({ url: 'Sleep_Sample_100_199.json' }).done(function (result) {  //test.json is het bestand dat hij uitleest.
 			var raw_data = result;
 
 			var json = [];
@@ -39,7 +39,8 @@
 							wakeValue = 3;
 							break;
 					}
-					item.wakeValue = raw_data[i].data.sleepStages[j].value
+					//item.wakeValue = raw_data[i].data.sleepStages[j].value;
+					item.wakeValue = raw_data[i].data.sleepStages[j].value.wakeValue;
 					json.push(item); //stuurt items in de array
 				}
 			}

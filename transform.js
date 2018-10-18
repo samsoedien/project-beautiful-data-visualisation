@@ -26,7 +26,7 @@ for (const inItem of input) {
   outItem.userId = outId;
 
   // date
-  outItem.date = inItem.createdAt;
+  outItem.date = inItemnode.createdAt;
 
   // copy heart rate
   outItem.sleepingHeartRate = inItem.data.sleepingHeartRate;
