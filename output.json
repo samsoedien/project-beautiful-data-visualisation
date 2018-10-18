@@ -1,0 +1,121 @@
+[
+  {
+    "_id": {
+      "$oid": "5911c8d86a5f0c3bc55e810e"
+    },
+    "userId": 1,
+    "date": 1494336640,
+    "sleepingHeartRate": 51,
+    "count_SLEEP_STAGES": 844,
+    "count_WAKE": 99,
+    "count_LIGHT_SLEEP": 500,
+    "count_DEEP_SLEEP": 110,
+    "count_REM_SLEEP": 135,
+    "timeSession": 25320,
+    "timeSleep": 22350,
+    "averageHeartbeatDuringDay": 93,
+    "AmountofSteps": 8051
+  },
+  {
+    "_id": {
+      "$oid": "591323037ca83d48eac1ff31"
+    },
+    "userId": 1,
+    "date": 1494426100,
+    "sleepingHeartRate": 49,
+    "count_SLEEP_STAGES": 956,
+    "count_WAKE": 99,
+    "count_LIGHT_SLEEP": 476,
+    "count_DEEP_SLEEP": 214,
+    "count_REM_SLEEP": 167,
+    "timeSession": 28680,
+    "timeSleep": 25710,
+    "averageHeartbeatDuringDay": 88,
+    "AmountofSteps": 9629
+  },
+  {
+    "_id": {
+      "$oid": "5917165b3ffac25462193490"
+    },
+    "userId": 1,
+    "date": 1494682209,
+    "sleepingHeartRate": 56,
+    "count_SLEEP_STAGES": 968,
+    "count_WAKE": 163,
+    "count_LIGHT_SLEEP": 413,
+    "count_DEEP_SLEEP": 157,
+    "count_REM_SLEEP": 235,
+    "timeSession": 29040,
+    "timeSleep": 24150,
+    "averageHeartbeatDuringDay": 106,
+    "AmountofSteps": 10054
+  },
+  {
+    "_id": {
+      "$oid": "59186505a709495a01d67ee8"
+    },
+    "userId": 1,
+    "date": 1494769629,
+    "sleepingHeartRate": 61,
+    "count_SLEEP_STAGES": 840,
+    "count_WAKE": 58,
+    "count_LIGHT_SLEEP": 484,
+    "count_DEEP_SLEEP": 136,
+    "count_REM_SLEEP": 162,
+    "timeSession": 25200,
+    "timeSleep": 23460,
+    "averageHeartbeatDuringDay": 89,
+    "AmountofSteps": 10117
+  },
+  {
+    "_id": {
+      "$oid": "5919b18352ed6955a4580484"
+    },
+    "userId": 1,
+    "date": 1494855969,
+    "sleepingHeartRate": 60,
+    "count_SLEEP_STAGES": 746,
+    "count_WAKE": 41,
+    "count_LIGHT_SLEEP": 440,
+    "count_DEEP_SLEEP": 140,
+    "count_REM_SLEEP": 125,
+    "timeSession": 22380,
+    "timeSleep": 21150,
+    "averageHeartbeatDuringDay": 98,
+    "AmountofSteps": 10305
+  },
+  {
+    "_id": {
+      "$oid": "5923105ba66bdc79eed52bbf"
+    },
+    "userId": 1,
+    "date": 1495469220,
+    "sleepingHeartRate": 60,
+    "count_SLEEP_STAGES": 1098,
+    "count_WAKE": 124,
+    "count_LIGHT_SLEEP": 652,
+    "count_DEEP_SLEEP": 142,
+    "count_REM_SLEEP": 180,
+    "timeSession": 32940,
+    "timeSleep": 29220,
+    "averageHeartbeatDuringDay": 91,
+    "AmountofSteps": 9983
+  },
+  {
+    "_id": {
+      "$oid": "592440ebfc35d65e57f5b677"
+    },
+    "userId": 1,
+    "date": 1495546260,
+    "sleepingHeartRate": 59,
+    "count_SLEEP_STAGES": 810,
+    "count_WAKE": 62,
+    "count_LIGHT_SLEEP": 469,
+    "count_DEEP_SLEEP": 83,
+    "count_REM_SLEEP": 196,
+    "timeSession": 24300,
+    "timeSleep": 22440,
+    "averageHeartbeatDuringDay": 95,
+    "AmountofSteps": 10867
+  }
+]
