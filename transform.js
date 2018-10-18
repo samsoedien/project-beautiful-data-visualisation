@@ -24,8 +24,8 @@ for (const inItem of input) {
   outItem.userId = outId;
 
   // date of the night
-  outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate;
-  outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate;
+  outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
+  outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
 
   var startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
   var endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
