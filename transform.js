@@ -25,12 +25,9 @@ for (const inItem of input) {
   }
   outItem.userId = outId;
 
-<<<<<<< HEAD
-=======
   // date
   outItem.date = inItemnode.createdAt;
 
->>>>>>> 78666dae9099c18bc7426de838ac5a4984f9061b
   // copy heart rate
   outItem.sleepingHeartRate = inItem.data.sleepingHeartRate;
 
