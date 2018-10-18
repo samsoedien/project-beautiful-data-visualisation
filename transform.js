@@ -24,8 +24,24 @@ for (const inItem of input) {
   outItem.userId = outId;
 
   // date of the night
-  outItem.sessionStartTime = inItem.data.sessionStartTime;
-  outItem.sessionEndTime = inItem.data.sessionEndTime;
+  outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate;
+  outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate;
+
+  var startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
+  var endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
+
+  var startTime = new Date(startTimeISOString);
+  startTime = new Date(
+    startTime.getTime() + startTime.getTimezoneOffset() * (7 * 30000)
+  );
+
+  var endTime = new Date(endTimeISOString);
+  endTime = new Date(
+    endTime.getTime() + endTime.getTimezoneOffset() * (7 * 30000)
+  );
+
+  outItem.sessionStartTime = startTime;
+  outItem.sessionEndTime = endTime;
 
   // copy heart rate
   outItem.sleepingHeartRate = inItem.data.sleepingHeartRate;
@@ -55,5 +71,5 @@ for (const inItem of input) {
 
 //write to new .json file
 const outTxt = JSON.stringify(output, null, 2);
-fs.writeFileSync("data/output.json", outTxt + "\n", "utf8");
+fs.writeFileSync("data/sleepdata.json", outTxt + "\n", "utf8");
 // console.log(output);
