@@ -14,7 +14,7 @@
       "timeUnit": "date",
       "field": "sessionStartTime",
       "type": "ordinal",
-      "title": "Days of the week",
+      "title": "Days of the week"
           },
     "y": {
       "timeUnit": "hoursminutes",
