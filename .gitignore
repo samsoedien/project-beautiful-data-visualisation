@@ -63,4 +63,5 @@ typings/
 # custom rules
 /node_modules
 package-lock.json
+
 /data
