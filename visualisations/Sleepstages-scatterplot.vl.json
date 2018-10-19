@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "description": "visualisation of sleep pattern",
+    "repeat": {
+        "row": [
+          "count_WAKE",
+          "count_LIGHT_SLEEP",
+          "count_DEEP_SLEEP",
+          "count_REM_SLEEP"
+        ],
+        "column":[
+          "count_WAKE",
+          "count_LIGHT_SLEEP",
+          "count_DEEP_SLEEP",
+          "count_REM_SLEEP"
+        ]
+      },
+      "spec": {
+    "data": {
+      "url": "/data/sleepdata.json"
+    },
+    "mark": "point",
+    "encoding": {
+      "x": {
+        "field": {
+          "repeat": "column"
+        },
+        "type": "ordinal",
+        "scale": {"rangeStep": null}
+      },
+      "y": {
+        "field": {
+          "repeat": "row"
+        },
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "userId",
+        "type": "nominal"
+      }
+    }
+  }
+}
