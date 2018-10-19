@@ -15,25 +15,7 @@
   <h1>Challenge 2 - Visualisation Sleep Data - </h1>
   <div id="vis"></div>
   <script>
-    var vlSpec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-      "description": "visualisation of sleep pattern",
-      "data": {
-        "url": "https://beautiful-data.herokuapp.com/api/users/5bc70eda523378056f78d6bb/",
-      },
-      "mark": "line",
-      "encoding": {
-        "x": {
-          "field": "heartdata.timestamp",
-          "type": "ordinal"
-        },
-        "y": {
-          "field": "heartdata.bpm",
-          "type": "quantitative"
-        },
-        "color": { "field": "", "type": "nominal" }
-      }
-    };
+    var vlSpec = "visualisations/bar.vl.json";
     vegaEmbed('#vis', vlSpec);
   </script>
 </body>

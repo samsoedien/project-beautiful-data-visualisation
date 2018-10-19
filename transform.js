@@ -14,7 +14,7 @@ for (const inItem of input) {
   // copy _id field
   outItem._id = inItem._id;
 
-  // map user ID
+  // map userID
   const inId = inItem.userId;
   var outId = userIds[inId];
   if (outId === undefined) {
