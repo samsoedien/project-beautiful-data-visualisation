@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
   "description": "visualisation of sleep pattern",
   "data": {
-    "url": "/data/sleepdata.json"
+    "url": "/data/test.json"
   },
-  "mark": "bar",
+   "mark": "bar",
   "encoding": {
     "x": {
       "timeUnit": "date",
@@ -12,13 +12,14 @@
       "type": "ordinal"
     },
     "y": {
-      "timeUnit": "hours",
+      "timeUnit": "hoursminutes",
       "field": "sessionStartTime",
       "type": "temporal"
     },
-    "y2": {
+    "y2":{
+      "timeUnit":"hoursminutes",
       "field": "sessionEndTime",
-      "type": "temporal"
-    }
-  }
+      "type":"temporal"
+        } 
+      }
 }
