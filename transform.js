@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const file = "data/test.json"; // choose input file
+const file = "data/Sleep_Sample_100_199.json"; // choose input file
 const inTxt = fs.readFileSync(file, "utf8"); // function to read file
 const input = JSON.parse(inTxt);
 
@@ -23,30 +23,29 @@ for (const inItem of input) {
   }
   outItem.userId = outId;
 
-   // date of the night
-   outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
-   outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
- 
-   var startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
-   var endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
+  // date of the night
+  outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
+  outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
 
-   //time -7 hour 
-   var startTime = new Date(startTimeISOString);
-   startTime = new Date(
-     startTime.getTime() + startTime.getTimezoneOffset() * (7 * 30000)
-   );
- 
-   var endTime = new Date(endTimeISOString);
-   endTime = new Date(
-     endTime.getTime() + endTime.getTimezoneOffset() * (7 * 30000)
-   );
- 
-   outItem.sessionStartTime = startTime;
-   outItem.sessionEndTime = endTime;
+  var startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
+  var endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
+
+  //time -7 hour
+  var startTime = new Date(startTimeISOString);
+  startTime = new Date(
+    startTime.getTime() + startTime.getTimezoneOffset() * (7 * 30000)
+  );
+
+  var endTime = new Date(endTimeISOString);
+  endTime = new Date(
+    endTime.getTime() + endTime.getTimezoneOffset() * (7 * 30000)
+  );
+
+  outItem.sessionStartTime = startTime;
+  outItem.sessionEndTime = endTime;
 
   // copy heart rate
   outItem.sleepingHeartRate = inItem.data.sleepingHeartRate;
- 
 
   // count SleepStages
   outItem.count_SLEEP_STAGES = 0;
@@ -61,6 +60,10 @@ for (const inItem of input) {
   // calculations on sleepstages
   outItem.timeSession = outItem.count_SLEEP_STAGES * 30;
   outItem.timeSleep = outItem.timeSession - outItem.count_WAKE * 30;
+
+  outItem.timeSessionMinutes = (outItem.count_SLEEP_STAGES * 30) / 60;
+  outItem.timeSleepMinutes =
+    (outItem.timeSession - outItem.count_WAKE * 30) / 60;
 
   // Add random data; Random heartbeat data and amount of steps in a array
   outItem.averageHeartbeatDuringDay = Math.floor(Math.random() * 60) + 60;
