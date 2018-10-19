@@ -1,0 +1,21 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "description": "visualisation of sleep pattern",
+    "data": {
+      "url": "/data/sleepdata.json"
+    },
+    "mark": "boxplot",
+    "encoding": {
+      "x": {
+        "timeUnit": "date",
+        "field": "sessionStartTime",
+        "type": "ordinal",
+        "title": "Date of sleepmonitoring"
+      },
+      "y": {
+        "field": "timeSleep",
+        "type": "quantitative",
+        "title": "Sleepstages per Night"
+      }
+    }
+  }
