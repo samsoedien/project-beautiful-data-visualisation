@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
   "description": "visualisation of sleep pattern",
   "data": {
-    "url": "/data/test.json"
+    "url": "/data/test1.json"
   },
    "mark": "bar",
   "encoding": {
