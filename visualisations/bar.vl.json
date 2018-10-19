@@ -1,16 +1,21 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
   "description": "visualisation of sleep pattern",
+"title": {
+  "text": "Visualisation of amount of sleep of a night"
+},
   "data": {
     "url": "/data/test1.json"
   },
+  
    "mark": "bar",
   "encoding": {
     "x": {
       "timeUnit": "date",
       "field": "sessionStartTime",
-      "type": "ordinal"
-    },
+      "type": "ordinal",
+      "title": "Days of the week",
+          },
     "y": {
       "timeUnit": "hoursminutes",
       "field": "sessionStartTime",
@@ -22,4 +27,6 @@
       "type":"temporal"
         } 
       }
-}
+    }
+  
+

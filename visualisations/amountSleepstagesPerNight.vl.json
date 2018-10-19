@@ -22,7 +22,14 @@
       },
       "x":{
         "field": {"repeat":"column"} ,
-        "type": "quantitative"
+        "type": "quantitative",
+        "stack":"normalize"
+        
+      },
+      "color": {
+        "field": 
+        {"repeat":"column"} ,
+        "type": "nominal"
       }
     }
   }
