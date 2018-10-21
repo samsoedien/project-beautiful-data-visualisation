@@ -1,0 +1,35 @@
+.padding {
+  padding: 200px 0;
+}
+
+.parallax-banner {
+  position: relative;
+  height: 360px;
+  background-image: url('/assets/img/adorable-animal-animal-photography-1056251.jpg');
+  background-size: 100%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.parallax-header {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  background-image: url('../../assets/img/agenda-book-business-273025.jpg');
+  background-size: 100% 600px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.overlay {
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.white-text {
+  color: white;
+  text-align: center;
+  padding: 60px 120px;
+}
