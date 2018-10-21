@@ -1,32 +1,37 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-    "description": "visualisation of sleep pattern",
-    "data": {
-      "url": "/data/test1.json"
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "visualisation of sleep pattern",
+  "data": {
+    "url": "/data/sleepdata.json"
+  },
+  "transform": [
+    {
+      "calculate": "(datum.count_DEEP_SLEEP*30)/60",
+      "as": "count_DEEPSLEEP_MINUTES"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "timeUnit": "datemonth",
+      "field": "sessionStartTime",
+      "type": "ordinal",
+      "title": "Date"
     },
-    "transform": [
-      {
-        "calculate": "(datum.count_DEEP_SLEEP*30)/60",
-        "as": "count_DEEPSLEEP_MINUTES"
-      }
-    ],
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "timeUnit": "datemonth",
-        "field": "sessionStartTime",
-        "type": "ordinal",
-        "title": "Date"
-      },
-      "x": {
-        "field": "timeSleepMinutes",
-        "type": "quantitative",
-        "title": "Amount of sleep per night in minutes"
-      },
-      "color": {
-        "field": "count_DEEPSLEEP_MINUTES",
-        "type": "quantitative",
-        "title": "Quality of sleep"
-      }
+    "x": {
+      "field": "timeSleepMinutes",
+      "type": "quantitative",
+      "title": "Amount of sleep per night in minutes"
+    },
+
+    "color": {
+      "field": "count_DEEPSLEEP_MINUTES",
+      "type": "quantitative",
+      "title": "Quality of sleep"
+    },
+    "column": {
+      "field": "userId",
+      "type": "nominal"
     }
   }
+}

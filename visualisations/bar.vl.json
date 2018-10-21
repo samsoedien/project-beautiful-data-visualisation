@@ -1,32 +1,42 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
   "description": "visualisation of sleep pattern",
-"title": {
-  "text": "Visualisation of amount of sleep of a night"
-},
-  "data": {
-    "url": "/data/test1.json"
+  "title": {
+    "text": "Quality and Amount of sleep per Night"
   },
-  
-   "mark": "bar",
+  "data": {
+    "url": "/data/sleepdata.json"
+  },
+
+  "mark": "bar",
   "encoding": {
     "y": {
-      "timeUnit": "date",
+      "timeUnit": "datemonth",
       "field": "sessionStartTime",
       "type": "ordinal",
+      "sort":"descending",
       "title": "Days of the week"
-          },
+      
+    },
     "x": {
       "timeUnit": "hoursminutes",
       "field": "sessionStartTime",
+      "type": "temporal",
+      "title": "Sleeptime"
+    },
+    "x2": {
+      "timeUnit": "hoursminutes",
+      "field": "sessionEndTime",
       "type": "temporal"
     },
-    "x2":{
-      "timeUnit":"hoursminutes",
-      "field": "sessionEndTime",
-      "type":"temporal"
-        } 
-      }
-    }
-  
-
+    "column": {
+      "field": "userId",
+      "type": "nominal"
+    },
+    "color": {
+      "field": "count_DEEP_SLEEP",
+      "type": "quantitative",
+      "title": "Quality of sleep"
+  }
+}
+}
