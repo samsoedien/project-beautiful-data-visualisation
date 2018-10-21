@@ -10,18 +10,18 @@
   
    "mark": "bar",
   "encoding": {
-    "x": {
+    "y": {
       "timeUnit": "date",
       "field": "sessionStartTime",
       "type": "ordinal",
       "title": "Days of the week"
           },
-    "y": {
+    "x": {
       "timeUnit": "hoursminutes",
       "field": "sessionStartTime",
       "type": "temporal"
     },
-    "y2":{
+    "x2":{
       "timeUnit":"hoursminutes",
       "field": "sessionEndTime",
       "type":"temporal"
