@@ -21,7 +21,7 @@
       "x": {
         "field": "timeSleepMinutes",
         "type": "quantitative",
-        "title": "amount of sleep per night in minutes"
+        "title": "Amount of sleep per night in minutes"
       },
       "color": {
         "field": "count_DEEPSLEEP_MINUTES",
