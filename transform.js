@@ -1,14 +1,27 @@
 const fs = require("fs");
 
-const file = "data/Sleep_Sample_100_199.json"; // choose input file
-const inTxt = fs.readFileSync(file, "utf8"); // function to read file
-const input = JSON.parse(inTxt);
+const calendarFile = "data/calenderdata.json"; // choose input file
+const inCalendarTxt = fs.readFileSync(calendarFile, "utf8"); // function to read file
+const calendarInput = JSON.parse(inCalendarTxt);
+
+const sleepFile = "data/Sleep_Sample_100_199.json"; // choose input file
+const inSleepTxt = fs.readFileSync(sleepFile, "utf8"); // function to read file
+const sleepInput = JSON.parse(inSleepTxt);
 
 const output = []; //puts output in empty array
 const userIds = {}; //puts output in object notation
 var nextId = 1;
 
-for (const inItem of input) {
+for (const inItem of calendarInput) {
+  const outItem = {};
+
+  outItem.activity = inItem.activity;
+  outItem.period = inItem.period;
+  
+  output.push(outItem);
+}
+
+for (const inItem of sleepInput) {
   const outItem = {};
 
   // copy _id field

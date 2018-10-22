@@ -1,0 +1,23 @@
+{
+  "name": "project-beautiful-data-visualisation",
+  "version": "1.0.0",
+  "description": "sleep data visualisations",
+  "main": "index.js",
+  "dependencies": {
+    "googleapis": "^27.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsoedien/project-beautiful-data-visualisation.git"
+  },
+  "author": "Samsoedien",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samsoedien/project-beautiful-data-visualisation/issues"
+  },
+  "homepage": "https://github.com/samsoedien/project-beautiful-data-visualisation#readme"
+}
