@@ -2,25 +2,25 @@
   padding: 200px 0;
 }
 
-.parallax-banner {
+.parallax-banner1 {
   position: relative;
   height: 360px;
-  background-image: url('/assets/img/adorable-animal-animal-photography-1056251.jpg');
-  background-size: 100%;
+  background-image: url("/assets/img/agenda-book-business-273025-small.jpg");
+  /* background-size: 100%;
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
-.parallax-header {
+.parallax-header1 {
   position: relative;
   height: 400px;
   width: 100%;
-  background-image: url('../../assets/img/agenda-book-business-273025.jpg');
+  background-image: url("/assets/img/agenda-book-business-273025-small.jpg");
   background-size: 100% 600px;
-  background-position: top center;
+  /* background-position: top center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
 .overlay {

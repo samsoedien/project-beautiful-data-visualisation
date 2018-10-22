@@ -2,7 +2,7 @@
   "name": "project-beautiful-data-visualisation",
   "version": "1.0.0",
   "description": "sleep data visualisations",
-  "main": "index.js",
+  "main": "googleCalendarAPI.js",
   "dependencies": {
     "googleapis": "^27.0.0"
   },
