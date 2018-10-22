@@ -14,9 +14,8 @@
       "timeUnit": "datemonth",
       "field": "sessionStartTime",
       "type": "ordinal",
-      "sort":"descending",
+      "sort": "descending",
       "title": "Days of the week"
-      
     },
     "x": {
       "timeUnit": "hoursminutes",
@@ -37,6 +36,6 @@
       "field": "count_DEEP_SLEEP",
       "type": "quantitative",
       "title": "Quality of sleep"
+    }
   }
-}
 }
