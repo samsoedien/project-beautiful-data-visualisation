@@ -84,12 +84,11 @@ for (const inItem of sleepInput) {
   }
 
   // calculations on sleepstages
-  //outItem.timeSession = outItem.count_SLEEP_STAGES * 30;
+  timeSession = outItem.count_SLEEP_STAGES * 30;
   //outItem.timeSleep = outItem.timeSession - outItem.count_WAKE * 30;
 
   outItem.timeSessionMinutes = (outItem.count_SLEEP_STAGES * 30) / 60;
-  outItem.timeSleepMinutes =
-    (outItem.timeSession - outItem.count_WAKE * 30) / 60;
+  outItem.timeSleepMinutes = (timeSession - outItem.count_WAKE * 30) / 60;
 
   // put into file
   output.push(outItem);
