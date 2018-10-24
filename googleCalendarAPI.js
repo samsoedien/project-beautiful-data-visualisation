@@ -72,7 +72,6 @@ function getAccessToken(oAuth2Client, callback) {
  */
 
 function listEvents(auth) {
-  let calendarEvents;
   const calendar = google.calendar({ version: "v3", auth });
   calendar.events.list(
     {
@@ -90,19 +89,29 @@ function listEvents(auth) {
         events.map((event, i) => {
           const start = event.start.dateTime || event.start.date;
           console.log(`${start} - ${event.summary}`);
-          calenderEvent = {
+          calendarEvent = {
             activity: event.summary,
             period: start
           };
         });
+        //console.log(events);
+        //return events;
       } else {
         console.log("No upcoming events found.");
       }
+      console.log(events);
+
+      // const calendarEvents = {
+      //   start: events.start,
+      //   end: events.end
+      // };
+      // console.log(calendarEvents);
+
+      const outTxt = JSON.stringify(events, null, 2);
+      fs.writeFileSync("data/calenderdata.json", outTxt + "\n", "utf8");
     }
   );
 
-  const outTxt = JSON.stringify(calendarEvents, null, 2);
-  fs.writeFileSync("data/calenderdata.json", outTxt + "\n", "utf8");
+  // const outTxt = JSON.stringify(calendarEvents, null, 2);
+  // fs.writeFileSync("data/calenderdata.json", outTxt + "\n", "utf8");
 }
-
-//FIXME: Need to find out how to return event data and stringify into JSON.

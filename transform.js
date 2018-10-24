@@ -15,9 +15,11 @@ var nextId = 1;
 for (const inItem of calendarInput) {
   const outItem = {};
 
-  outItem.activity = inItem.activity;
-  outItem.period = inItem.period;
-  
+  // outItem.activity = inItem.activity;
+  // outItem.period = inItem.period;
+
+  outItem.agendaData = inItem;
+
   output.push(outItem);
 }
 
