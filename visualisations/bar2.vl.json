@@ -5,32 +5,25 @@
     "text": "Quality and Amount of sleep per Night"
   },
   "data": {
-    "url": "/data/test1.json"
+    "url": "/data/calenderdata.json"
   },
   "width": 700,
   "height": 400,
-  "transform": [
-      {
-      "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
-      "as": "percentage_DEEP_SLEEP"
-    }
-  ],
-
   "mark": "bar",
   "encoding": {
     "y": {
       "timeUnit": "datemonth",
-      "field": "sessionStartTime",
+      "field": "start.dateTime",
       "type": "ordinal",
       "sort": "ascending",
       "title": "Days of the week"
-          },
+    },
     "x": {
       "timeUnit": "hoursminutes",
-      "field": "sessionStartTime",
+      "field": "start.dateTime",
       "type": "temporal",
       "axis": {
-        "title": "Sleeptime"
+        "title": "Time of the day"
       },
       "scale": {
         "nice": "day"
@@ -38,13 +31,32 @@
     },
     "x2": {
       "timeUnit": "hoursminutes",
-      "field": "sessionEndTime",
+      "field": "end.dateTime",
       "type": "temporal"
     },
     "color": {
-      "field": "percentage_DEEP_SLEEP",
-      "type": "quantitative",
-      "title": "Quality of sleep"
+      "field": "colorId",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "10",
+          "11",
+          "3",
+          "5",
+          "6",
+          "9"
+        ],
+        "range": [
+          "#229954",
+          "#FF0000",
+          "#6C3483",
+          "#F4D03F",
+          "#D35400",
+          "#2471A3"
+        ]
+      },
+      "title": "Activities"
+      
     }
   }
 }
