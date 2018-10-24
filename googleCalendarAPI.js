@@ -101,17 +101,8 @@ function listEvents(auth) {
       }
       console.log(events);
 
-      // const calendarEvents = {
-      //   start: events.start,
-      //   end: events.end
-      // };
-      // console.log(calendarEvents);
-
       const outTxt = JSON.stringify(events, null, 2);
       fs.writeFileSync("data/calenderdata.json", outTxt + "\n", "utf8");
     }
   );
-
-  // const outTxt = JSON.stringify(calendarEvents, null, 2);
-  // fs.writeFileSync("data/calenderdata.json", outTxt + "\n", "utf8");
 }

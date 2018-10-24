@@ -10,20 +10,23 @@ const sleepInput = JSON.parse(inSleepTxt);
 
 const output = []; //puts output in empty array
 const userIds = {}; //puts output in object notation
-var nextId = 1;
-
-for (const inItem of calendarInput) {
-  const outItem = {};
-
-  // outItem.activity = inItem.activity;
-  // outItem.period = inItem.period;
-
-  outItem.agendaData = inItem;
-
-  output.push(outItem);
-}
+let nextId = 1;
 
 for (const inItem of sleepInput) {
+
+  for (const inItem of calendarInput) {
+    const outItem = {};
+  
+    // outItem.activity = inItem.activity;
+    // outItem.period = inItem.period;
+  
+    // outItem.agendaData = inItem;
+  
+    // output.push(outItem);
+    let agendaItems = inItem;
+    return agendaItems;
+  }
+
   const outItem = {};
 
   // copy _id field
@@ -31,27 +34,30 @@ for (const inItem of sleepInput) {
 
   // map userID
   const inId = inItem.userId;
-  var outId = userIds[inId];
+  let outId = userIds[inId];
   if (outId === undefined) {
     outId = nextId++;
     userIds[inId] = outId;
   }
   outItem.userId = outId;
 
+  outItem.agendaData = agendaItems;
+
+
   // date of the night
   outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
   outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
 
-  var startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
-  var endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
+  const startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
+  const endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
 
   //time -7 hour
-  var startTime = new Date(startTimeISOString);
+  let startTime = new Date(startTimeISOString);
   startTime = new Date(
     startTime.getTime() + startTime.getTimezoneOffset() * (7 * 30000)
   );
 
-  var endTime = new Date(endTimeISOString);
+  let endTime = new Date(endTimeISOString);
   endTime = new Date(
     endTime.getTime() + endTime.getTimezoneOffset() * (7 * 30000)
   );
