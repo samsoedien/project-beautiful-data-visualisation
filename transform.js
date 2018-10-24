@@ -4,7 +4,7 @@ const calendarFile = "data/calenderdata.json"; // choose input file
 const inCalendarTxt = fs.readFileSync(calendarFile, "utf8"); // function to read file
 const calendarInput = JSON.parse(inCalendarTxt);
 
-const sleepFile = "data/user1.json"; // choose input file
+const sleepFile = "data/Sleep_Sample_100_199.json"; // choose input file
 const inSleepTxt = fs.readFileSync(sleepFile, "utf8"); // function to read file
 const sleepInput = JSON.parse(inSleepTxt);
 
@@ -13,19 +13,24 @@ const userIds = {}; //puts output in object notation
 let nextId = 1;
 
 for (const inItem of sleepInput) {
-
+  let agendaItems;
   for (const inItem of calendarInput) {
-    const outItem = {};
-  
-    // outItem.activity = inItem.activity;
-    // outItem.period = inItem.period;
-  
-    // outItem.agendaData = inItem;
-  
-    // output.push(outItem);
-    let agendaItems = inItem;
-    return agendaItems;
+    agendaItems = inItem;
+    //console.log(agendaItems);
   }
+  // for (const inItem of calendarInput) {
+  //   // const outItem = {};
+
+  //   // outItem.activity = inItem.activity;
+  //   // outItem.period = inItem.period;
+
+  //   // outItem.agendaData = inItem;
+
+  //   // output.push(outItem);
+
+  //   let agendaItems = inItem.start;
+  //   return agendaItems;
+  // }
 
   const outItem = {};
 
@@ -41,12 +46,12 @@ for (const inItem of sleepInput) {
   }
   outItem.userId = outId;
 
+  console.log(agendaItems);
   outItem.agendaData = agendaItems;
 
-
   // date of the night
-  outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
-  outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
+  // outItem.unconvertedSessionStartTime = inItem.sessionStartTimeIsoDate.$date;
+  // outItem.unconvertedSessionEndTime = inItem.sessionEndTimeIsoDate.$date;
 
   const startTimeISOString = inItem.sessionStartTimeIsoDate.$date;
   const endTimeISOString = inItem.sessionEndTimeIsoDate.$date;
@@ -79,16 +84,12 @@ for (const inItem of sleepInput) {
   }
 
   // calculations on sleepstages
-  outItem.timeSession = outItem.count_SLEEP_STAGES * 30;
-  outItem.timeSleep = outItem.timeSession - outItem.count_WAKE * 30;
+  //outItem.timeSession = outItem.count_SLEEP_STAGES * 30;
+  //outItem.timeSleep = outItem.timeSession - outItem.count_WAKE * 30;
 
   outItem.timeSessionMinutes = (outItem.count_SLEEP_STAGES * 30) / 60;
   outItem.timeSleepMinutes =
     (outItem.timeSession - outItem.count_WAKE * 30) / 60;
-
-  // Add random data; Random heartbeat data and amount of steps in a array
-  outItem.averageHeartbeatDuringDay = Math.floor(Math.random() * 60) + 60;
-  outItem.amountofSteps = Math.floor(Math.random() * 5000) + 7000;
 
   // put into file
   output.push(outItem);
@@ -96,5 +97,5 @@ for (const inItem of sleepInput) {
 
 //write to new .json file
 const outTxt = JSON.stringify(output, null, 2);
-fs.writeFileSync("data/test1.json", outTxt + "\n", "utf8");
+fs.writeFileSync("data/sleepdata.json", outTxt + "\n", "utf8");
 // console.log(output);
