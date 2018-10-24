@@ -2,13 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
   "description": "visualisation of sleep pattern",
   "title": {
-    "text": "Quality and Amount of sleep per Night"
+    "text": "Activities during the day"
   },
   "data": {
     "url": "/data/calenderdata.json"
   },
   "width": 700,
   "height": 400,
+
   "mark": "bar",
   "encoding": {
     "y": {
@@ -38,14 +39,7 @@
       "field": "colorId",
       "type": "nominal",
       "scale": {
-        "domain": [
-          "10",
-          "11",
-          "3",
-          "5",
-          "6",
-          "9"
-        ],
+        "domain": ["10", "11", "3", "5", "6", "9"],
         "range": [
           "#229954",
           "#FF0000",
@@ -56,7 +50,6 @@
         ]
       },
       "title": "Activities"
-      
     }
   }
 }

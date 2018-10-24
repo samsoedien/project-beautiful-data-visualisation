@@ -1,0 +1,101 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "description": "visualisation of sleep pattern",
+    "title": {
+      "text": "Quality and Amount of sleep per Night"
+    },
+    "data": {
+      "url": "/data/test1.json"
+    },
+        "transform": [
+        {
+        "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
+        "as": "percentage_DEEP_SLEEP"
+      }
+    ],
+  
+    "vconcat": [
+        {
+            "width": 700,
+    "height": 400,
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "timeUnit": "datemonth",
+        "field": "sessionStartTime",
+        "type": "ordinal",
+        "sort": "ascending",
+        "title": "Days of the week"
+            },
+      "x": {
+        "timeUnit": "hoursminutes",
+        "field": "sessionStartTime",
+        "type": "temporal",
+        "axis": {
+          "title": "Sleeptime"
+        },
+        "scale": {
+          "nice": "day"
+        }
+      },
+      "x2": {
+        "timeUnit": "hoursminutes",
+        "field": "sessionEndTime",
+        "type": "temporal"
+      },
+      "color": {
+        "field": "percentage_DEEP_SLEEP",
+        "type": "quantitative",
+        "title": "Quality of sleep"
+      }
+    }
+  },
+  {
+    "width": 700,
+    "height": 400,
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "timeUnit": "datemonth",
+        "field": "agendaData.start.dateTime",
+        "type": "ordinal",
+        "sort": "ascending",
+        "title": "Days of the week"
+      },
+      "x": {
+        "timeUnit": "hoursminutes",
+        "field": "agendaData.start.dateTime",
+        "type": "temporal",
+        "axis": {
+          "title": "Time of the day"
+        },
+        "scale": {
+          "nice": "day"
+        }
+      },
+      "x2": {
+        "timeUnit": "hoursminutes",
+        "field": "agendaData.end.dateTime",
+        "type": "temporal"
+      },
+      "color": {
+        "field": "agendaData.colorId",
+        "type": "nominal",
+        "scale": {
+          "domain": ["10", "11", "3", "5", "6", "9"],
+          "range": [
+            "#229954",
+            "#FF0000",
+            "#6C3483",
+            "#F4D03F",
+            "#D35400",
+            "#2471A3"
+          ]
+        },
+        "title": "Activities"
+      }
+    }
+  }
+]
+}
+  
