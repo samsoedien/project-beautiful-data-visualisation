@@ -7,6 +7,12 @@
   "data": {
     "url": "/data/sleepdata.json"
   },
+  "transform": [
+      {
+      "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
+      "as": "percentage_DEEP_SLEEP"
+    }
+  ],
 
   "mark": "bar",
   "encoding": {
@@ -33,7 +39,7 @@
       "type": "nominal"
     },
     "color": {
-      "field": "count_DEEP_SLEEP",
+      "field": "percentage_DEEP_SLEEP",
       "type": "quantitative",
       "title": "Quality of sleep"
     }

@@ -8,6 +8,10 @@
     {
       "calculate": "(datum.count_DEEP_SLEEP*30)/60",
       "as": "count_DEEPSLEEP_MINUTES"
+    },
+    {
+      "calculate": "(datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
+      "as": "percentage_DEEP_SLEEP"
     }
   ],
   "mark": "bar",
@@ -25,7 +29,7 @@
     },
 
     "color": {
-      "field": "count_DEEPSLEEP_MINUTES",
+      "field": "percentage_DEEP_SLEEP",
       "type": "quantitative",
       "title": "Quality of sleep"
     },
