@@ -4,7 +4,7 @@ const calendarFile = "data/calenderdata.json"; // choose input file
 const inCalendarTxt = fs.readFileSync(calendarFile, "utf8"); // function to read file
 const calendarInput = JSON.parse(inCalendarTxt);
 
-const sleepFile = "data/Sleep_Sample_100_199.json"; // choose input file
+const sleepFile = "data/user1.json"; // choose input file
 const inSleepTxt = fs.readFileSync(sleepFile, "utf8"); // function to read file
 const sleepInput = JSON.parse(inSleepTxt);
 
@@ -96,5 +96,5 @@ for (const inItem of sleepInput) {
 
 //write to new .json file
 const outTxt = JSON.stringify(output, null, 2);
-fs.writeFileSync("data/sleepdata.json", outTxt + "\n", "utf8");
+fs.writeFileSync("data/test1.json", outTxt + "\n", "utf8");
 // console.log(output);
