@@ -5,12 +5,12 @@
     "text": "Quality and Amount of sleep per Night"
   },
   "data": {
-    "url": "/data/test1.json"
+    "url": "/data/Sleep_Sample_100_199.json"
   },
   "width": 700,
   "height": 400,
   "transform": [
-      {
+    {
       "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
       "as": "percentage_DEEP_SLEEP"
     }
@@ -24,7 +24,7 @@
       "type": "ordinal",
       "sort": "ascending",
       "title": "Days of the week"
-          },
+    },
     "x": {
       "timeUnit": "hoursminutes",
       "field": "sessionStartTime",

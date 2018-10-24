@@ -35,15 +35,18 @@
   </header>
 
   <div class="container">
-    <h1 class="text-center m-5
-    ">Visualisation Sleep Data</h1>
-    <div id="vis"></div>
+    <h1 class="text-center m-5">Visualisation Sleep Data</h1>
+    <div id="vis1"></div>
+    <div id="vis2"></div>
   </div>
   <div class="padding"></div>
 
   <script>
-    var vlSpec = "visualisations/bar2.vl.json";
-    vegaEmbed('#vis', vlSpec);
+    var vlSpec1 = "visualisations/Quality-of-sleep-per-night.vl.json";
+    vegaEmbed('#vis1', vlSpec1);
+
+    var vlSpec2 = "visualisations/bar2.vl.json";
+    vegaEmbed('#vis2', vlSpec2);
   </script>
 </body>
 
