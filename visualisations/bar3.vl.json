@@ -1,101 +1,133 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
-    "description": "visualisation of sleep pattern",
-    "title": {
-      "text": "Quality and Amount of sleep per Night"
-    },
-    "data": {
-      "url": "/data/sleepdata.json"
-    },
-        "transform": [
-        {
-        "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
-        "as": "percentage_DEEP_SLEEP"
-      }
-    ],
-  
-    "vconcat": [
-        {
-    "width": 700,
-    "height": 400,
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "timeUnit": "datemonth",
-        "field": "sessionStartTime",
-        "type": "ordinal",
-        "sort": "ascending",
-        "title": "Days of the week"
-            },
-      "x": {
-        "timeUnit": "hoursminutes",
-        "field": "sessionStartTime",
-        "type": "temporal",
-        "axis": {
-          "title": "Sleeptime"
-        },
-        "scale": {
-          "nice": "day"
-        }
-      },
-      "x2": {
-        "timeUnit": "hoursminutes",
-        "field": "sessionEndTime",
-        "type": "temporal"
-      },
-      "color": {
-        "field": "percentage_DEEP_SLEEP",
-        "type": "quantitative",
-        "title": "Quality of sleep"
-      }
-    }
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "visualisation of sleep pattern",
+  "data": {
+    "url": "/data/sleepdata.json"
   },
-  {
-    "width": 700,
-    "height": 400,
-    "mark": "bar",
-    "encoding": {
-      "y": {
-        "timeUnit": "datemonth",
-        "field": "eventStart",
-        "type": "ordinal",
-        "sort": "ascending",
-        "title": "Days of the week"
+  "transform": [
+    {
+      "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
+      "as": "percentage_DEEP_SLEEP"
+    }
+  ],
+
+  "vconcat": [
+    {
+      "title": {
+        "text": "Quality and Amount of sleep per Night"
       },
-      "x": {
-        "timeUnit": "hoursminutes",
-        "field": "eventStart",
-        "type": "temporal",
-        "axis": {
-          "title": "Time of the day"
+      "width": 700,
+      "height": 400,
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "timeUnit": "datemonth",
+          "field": "sessionStartTime",
+          "type": "ordinal",
+          "sort": "ascending",
+          "title": "Days of the week"
         },
-        "scale": {
-          "nice": "day"
+        "x": {
+          "timeUnit": "hoursminutes",
+          "field": "sessionStartTime",
+          "type": "temporal",
+          "axis": {
+            "title": "Sleeptime"
+          },
+          "scale": {
+            "nice": "day"
+          }
+        },
+        "x2": {
+          "timeUnit": "hoursminutes",
+          "field": "sessionEndTime",
+          "type": "temporal"
+        },
+        "color": {
+          "field": "percentage_DEEP_SLEEP",
+          "type": "quantitative",
+          "title": "Quality of sleep"
         }
+      }
+    },
+    {
+      "title": {
+        "text": "Overview of activities during the day"
       },
-      "x2": {
-        "timeUnit": "hoursminutes",
-        "field": "eventEnd",
-        "type": "temporal"
-      },
-      "color": {
-        "field": "eventActivity",
-        "type": "nominal",
-        "scale": {
-          "domain": ["Work", "Travel", "Leisure", "Sport", "Childeren", "Chores"],
-          "range": [
-            "#FF0000",
-            "#229954",
-            "#6C3483",
-            "#F4D03F",
-            "#D35400",
-            "#2471A3"
-          ]
+      "width": 700,
+      "height": 400,
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "timeUnit": "datemonth",
+          "field": "eventStart",
+          "type": "ordinal",
+          "sort": "ascending",
+          "title": "Days of the week"
         },
-        "title": "Activities"
+        "x": {
+          "timeUnit": "hoursminutes",
+          "field": "eventStart",
+          "type": "temporal",
+          "axis": {
+            "title": "Time of the day"
+          },
+          "scale": {
+            "nice": "day"
+          }
+        },
+        "x2": {
+          "timeUnit": "hoursminutes",
+          "field": "eventEnd",
+          "type": "temporal"
+        },
+        "color": {
+          "field": "eventActivity",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Work",
+              "Travel",
+              "Leisure",
+              "Sport",
+              "Childeren",
+              "Chores"
+            ],
+            "range": [
+              "#FF0000",
+              "#229954",
+              "#6C3483",
+              "#F4D03F",
+              "#D35400",
+              "#2471A3"
+            ]
+          },
+          "title": "Activities"
+        }
+      }
+    },
+    {
+      "title": {
+        "text": "Quality of sleep vs total duration of events during the day"
+      },
+      "width": 700,
+      "height": 400,
+      "mark": "point",
+      "encoding": {
+        "y": {
+          "field": "percentage_DEEP_SLEEP",
+          "type": "quantitative"
+        },
+        "x": {
+          "timeUnit": "datemonth",
+          "field": "sessionStartTime",
+          "type": "ordinal"
+        },
+        "y2": {
+          "field": "eventActivity",
+          "type": "ordinal"
+        }
       }
     }
-  }
-]
+  ]
 }
-  
