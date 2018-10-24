@@ -117,7 +117,15 @@ for (const inItem of sleepInput) {
   }
 }
 
+let arr = output,
+  result = Object.values(arr.reduce((a, c) => {
+    Object.assign((a[c['_id']] || (a[c['_id']] = Object.create(null))), c);
+    return a;
+  }, Object.create(null)));
+
+console.log(result);
+
 //write to new .json file
-const outTxt = JSON.stringify(output, null, 2);
+const outTxt = JSON.stringify(result, null, 2);
 fs.writeFileSync("data/sleepdata.json", outTxt + "\n", "utf8");
 // console.log(output);
