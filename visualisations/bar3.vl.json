@@ -5,7 +5,7 @@
       "text": "Quality and Amount of sleep per Night"
     },
     "data": {
-      "url": "/data/test1.json"
+      "url": "/data/sleepdata.json"
     },
         "transform": [
         {
@@ -16,7 +16,7 @@
   
     "vconcat": [
         {
-            "width": 700,
+    "width": 700,
     "height": 400,
     "mark": "bar",
     "encoding": {
@@ -57,14 +57,14 @@
     "encoding": {
       "y": {
         "timeUnit": "datemonth",
-        "field": "agendaData.start.dateTime",
+        "field": "eventStart",
         "type": "ordinal",
         "sort": "ascending",
         "title": "Days of the week"
       },
       "x": {
         "timeUnit": "hoursminutes",
-        "field": "agendaData.start.dateTime",
+        "field": "eventStart",
         "type": "temporal",
         "axis": {
           "title": "Time of the day"
@@ -75,17 +75,17 @@
       },
       "x2": {
         "timeUnit": "hoursminutes",
-        "field": "agendaData.end.dateTime",
+        "field": "eventEnd",
         "type": "temporal"
       },
       "color": {
-        "field": "agendaData.colorId",
+        "field": "eventActivity",
         "type": "nominal",
         "scale": {
-          "domain": ["10", "11", "3", "5", "6", "9"],
+          "domain": ["Work", "Travel", "Leisure", "Sport", "Childeren", "Chores"],
           "range": [
-            "#229954",
             "#FF0000",
+            "#229954",
             "#6C3483",
             "#F4D03F",
             "#D35400",
