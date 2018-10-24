@@ -4,38 +4,42 @@
   "data": {
     "url": "/data/sleepdata.json"
   },
-  "transform": [
+},
+"transform": [
     {
-      "calculate": "(datum.count_DEEP_SLEEP*30)/60",
-      "as": "count_DEEPSLEEP_MINUTES"
-    },
-    {
-      "calculate": "(datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
-      "as": "percentage_DEEP_SLEEP"
-    }
-  ],
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "timeUnit": "datemonth",
-      "field": "sessionStartTime",
-      "type": "ordinal",
-      "title": "Date"
-    },
-    "x": {
-      "field": "timeSleepMinutes",
-      "type": "quantitative",
-      "title": "Amount of sleep per night in minutes"
-    },
+    "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
+    "as": "percentage_DEEP_SLEEP"
+  }
+],
 
-    "color": {
-      "field": "percentage_DEEP_SLEEP",
-      "type": "quantitative",
-      "title": "Quality of sleep"
-    },
-    "column": {
-      "field": "userId",
-      "type": "nominal"
-    }
+"mark": "bar",
+"encoding": {
+  "y": {
+    "timeUnit": "datemonth",
+    "field": "sessionStartTime",
+    "type": "ordinal",
+    "sort": "descending",
+    "title": "Days of the week"
+  },
+  "x": {
+    "timeUnit": "hoursminutes",
+    "field": "sessionStartTime",
+    "type": "temporal",
+    "title": "Sleeptime"
+  },
+  "x2": {
+    "timeUnit": "hoursminutes",
+    "field": "sessionEndTime",
+    "type": "temporal"
+  },
+  "column": {
+    "field": "userId",
+    "type": "nominal"
+  },
+  "color": {
+    "field": "percentage_DEEP_SLEEP",
+    "type": "quantitative",
+    "title": "Quality of sleep"
   }
 }
+

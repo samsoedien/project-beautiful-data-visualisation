@@ -5,8 +5,10 @@
     "text": "Quality and Amount of sleep per Night"
   },
   "data": {
-    "url": "/data/sleepdata.json"
+    "url": "/data/test1.json"
   },
+  "width": 700,
+  "height": 400,
   "transform": [
       {
       "calculate": "((datum.count_DEEP_SLEEP*30)/60)/datum.timeSleepMinutes*100",
@@ -27,16 +29,14 @@
       "timeUnit": "hoursminutes",
       "field": "sessionStartTime",
       "type": "temporal",
-      "title": "Sleeptime"
+      "axis": {
+        "title": "Sleeptime"
+      }
     },
     "x2": {
       "timeUnit": "hoursminutes",
       "field": "sessionEndTime",
       "type": "temporal"
-    },
-    "column": {
-      "field": "userId",
-      "type": "nominal"
     },
     "color": {
       "field": "percentage_DEEP_SLEEP",
