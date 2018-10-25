@@ -105,29 +105,9 @@
           "title": "Activities"
         }
       }
-    },
-    {
-      "title": {
-        "text": "Quality of sleep vs total duration of events during the day"
-      },
-      "width": 700,
-      "height": 400,
-      "mark": "point",
-      "encoding": {
-        "y": {
-          "field": "percentage_DEEP_SLEEP",
-          "type": "quantitative"
-        },
-        "x": {
-          "timeUnit": "datemonth",
-          "field": "sessionStartTime",
-          "type": "ordinal"
-        },
-        "y2": {
-          "field": "eventActivity",
-          "type": "ordinal"
-        }
-      }
     }
+    
   ]
+  
 }
+
